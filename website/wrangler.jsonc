@@ -1,0 +1,27 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "tour",
+  "compatibility_date": "2026-02-15",
+  "pages_build_output_dir": "./build",
+  "observability": {
+    "enabled": true
+  },
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  // Database binding
+  "d1_databases": [
+    {
+      "binding": "DATABASE", // Must match context.env.[binding] 
+      "database_name": "my-database",
+      "database_id": "2f4e4b06-610b-4de1-9cb5-ab837f7357e4" 
+    }
+  ],
+  // Object storage binding
+  "r2_buckets": [
+    {
+      "binding": "BUCKET", // Must match context.env.[binding]
+      "bucket_name": "bucket"
+    }
+  ]
+}
