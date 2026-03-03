@@ -1,0 +1,293 @@
+.pageContainer {
+    display: flex;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+}
+
+.content {
+    flex: 1;
+    padding: 2rem 1rem 40px;
+    overflow-y: auto;
+}
+
+.header {
+    background-color: #ffffff;
+    padding: 1.5rem 2.5rem;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 2rem;
+}
+
+.pageTitle {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.pageSubtitle {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #000000;
+}
+
+.cardTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #111827;
+}
+
+.cardSubtitle {
+    color: #6b7280;
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+}
+
+.adminBadge {
+    font-size: 0.875rem;
+    color: #7a1010;
+    background: #fef2f2;
+    padding: 0.5rem 1.25rem;
+    border-radius: 2rem;
+    border: 1px solid #fecaca;
+    font-weight: 600;
+}
+
+.sectionTabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.tab, .activeTab {
+    padding: 1rem 2rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-size: 1rem;
+}
+
+.tab { color: #6b7280; }
+.activeTab {
+    color: #7a1010;
+    border-bottom: 3px solid #7a1010;
+}
+
+.editorGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.landingEditorFull {
+    grid-column: span 2;
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.editorPanel {
+    background: #ffffff;
+    border-radius: 1rem;
+    padding: 2.5rem;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.panelHeader {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #f8f9fa;
+    padding-bottom: 1rem;
+}
+
+.listTitle {
+    display: block;
+    margin-bottom: 0.75rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #7a1010;
+    font-weight: 700;
+}
+
+.input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 0.75rem;
+    box-sizing: border-box;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.largeInput {
+    min-height: 200px;
+}
+
+.slideshowList {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.slideThumb {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.slideThumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slideThumb button {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.fullPreviewBtn {
+    margin-top: 2rem;
+    width: 100%;
+    background: #ffffff;
+    border: 2px solid #7a1010;
+    color: #7a1010;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.fullPagePreview {
+    position: fixed;
+    inset: 0;
+    background: #ffffff;
+    z-index: 10000;
+    overflow-x: hidden;
+}
+
+.previewNav {
+    position: sticky;
+    top: 0;
+    background: #ffffff;
+    padding: 1rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+    z-index: 100;
+}
+
+.slideshowContainer {
+    position: relative;
+    height: 60vh;
+    background: #1a1a1a;
+    width: 100%;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.activeSlide { opacity: 1; }
+
+.fullWidthStartBtn {
+    width: 100%;
+    padding: 1.5rem;
+    background: #7a1010;
+    color: white;
+    border: none;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    letter-spacing: 0.1em;
+}
+
+.webBody {
+    padding: 4rem 0;
+    background: #fff;
+}
+
+.webContainer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.landingPageTitle {
+    color: #7a1010;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 800;
+}
+
+.bodyText {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #374151;
+    white-space: pre-wrap;
+    text-align: left;
+}
+
+.squareCard {
+    background: #ffffff;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    max-width: 300px;
+}
+
+.squareCardContent {
+    padding: 1.5rem;
+    text-align: center;
+    background: #374151;
+}
+
+.squareCardTitle {
+    color: #fff;
+    margin: 0;
+}
+
+.viewerContainer {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 20000;
+}
+
+.viewerCloseBtn {
+    position: absolute;
+    top: 20px;
+    left: 50px;
+    z-index: 100;
+    background: white;
+    border: 2px solid #7a1010;
+    padding: 12px 24px;
+    border-radius: 0.5rem;
+    color: #7a1010;
+    font-weight: 700;
+}

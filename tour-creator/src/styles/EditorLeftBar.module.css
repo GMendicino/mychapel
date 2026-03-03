@@ -1,0 +1,119 @@
+.sidebar {
+  width: min(400px, 100vw);
+  flex: 0 0 min(400px, 100vw);
+  background-color: #ffffff;
+  border-right: 1px solid #e0e0e0;
+  min-height: 100vh;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.sidebarBox {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #e0e0e0;
+  background: white;
+}
+
+.topBtn {
+  background: none;
+  border: none;
+  color: #7a1010;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0;
+  transition: all 0.2s ease;
+}
+
+.topBtn:hover {
+  color: #5a0c0c;
+  text-decoration: underline;
+}
+
+.sidebarMetaRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid #e0e0e0;
+  background: white;
+}
+
+.sidebarMetaCell {
+  padding: 1.25rem 2rem;
+}
+
+.sidebarMetaCell + .sidebarMetaCell {
+  border-left: 1px solid #e0e0e0;
+}
+
+.sidebarMetaLabel {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6b7280;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.sidebarMetaValue {
+  font-size: 1.125rem;
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.saveBtn {
+  width: 100%;
+  font-weight: 600;
+  background-color: #4CAF50;
+  border: 2px solid #4CAF50;
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+
+.saveBtn:hover {
+  background-color: #45a049;
+  border-color: #45a049;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.saveBtn:active {
+  transform: translateY(0);
+}
+
+.viewBtn {
+  width: 100%;
+  font-weight: 600;
+  background-color: #ffffff;
+  border: 2px solid #7a1010;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #7a1010;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+
+.viewBtn:hover:not(:disabled) {
+  background-color: #7a1010;
+  border-color: #7a1010;
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(122, 16, 16, 0.2);
+}
+
+.viewBtn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.viewBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  border-color: #d0d0d0;
+  color: #9ca3af;
+  background-color: #f9fafb;
+}

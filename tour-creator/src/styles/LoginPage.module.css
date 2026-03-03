@@ -1,0 +1,97 @@
+.card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    width: min(100%, 420px);
+    border-radius: 1.25rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    border: 1px solid #f0f0f0;
+}
+
+.header {
+    padding: 1.75rem 2rem;
+    background: #fef2f2;
+    border-bottom: 2px solid #f0f0f0;
+    font-weight: 700;
+    color: #1a1a1a;
+    font-size: 1.375rem;
+    letter-spacing: -0.01em;
+}
+
+.body {
+    padding: 2rem;
+}
+
+.inputGroup {
+    margin-bottom: 1.5rem;
+}
+
+.label {
+    display: block;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #374151;
+}
+
+.input {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 0.75rem;
+    font-size: 0.95rem;
+    background: white;
+    color: #1a1a1a;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+}
+
+.input:focus {
+    outline: none;
+    border-color: #7a1010;
+    box-shadow: 0 0 0 3px rgba(122, 16, 16, 0.1);
+}
+
+.actions {
+    padding: 1.25rem 2rem;
+    background: #f8f9fa;
+    border-top: 2px solid #f0f0f0;
+}
+
+.submitBtn {
+    width: 100%;
+    background-color: #7a1010;
+    color: white;
+    border: none;
+    padding: 0.875rem 1.75rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    letter-spacing: 0.02em;
+}
+
+.submitBtn:hover {
+    background-color: #5a0c0c;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(122, 16, 16, 0.3);
+}
+
+.submitBtn:active {
+    transform: translateY(0);
+}
+
+.errorText {
+    color: #7a1010;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-top: 1rem;
+    background: #fef2f2;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #fecaca;
+}
