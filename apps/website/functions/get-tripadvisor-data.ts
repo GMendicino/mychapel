@@ -31,13 +31,13 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     let data;
     
     // If we're missing an API key or it's a known test ID, provide mock data
-    if ((!TRIPADVISOR_API_KEY && !origin.includes('pages.dev')) || locationId === "212130") {
+    if ((!TRIPADVISOR_API_KEY && !origin.includes('pages.dev')) || locationId === "1066004") {
       data = {
         rating: "4.5",
-        num_reviews: "482",
-        web_url: "https://www.tripadvisor.com/Attraction_Review-g186487-d212130-Reviews-Edinburgh_Castle-Edinburgh_Scotland.html",
+        num_reviews: "200",
+        web_url: "https://www.tripadvisor.com/Attraction_Review-g186487-d1066004-Reviews-King_s_College_Chapel-Aberdeen_Aberdeenshire_Scotland.html",
         rating_image_url: "https://www.tripadvisor.com/img/cdsi/img2/ratings/traveler/4.5-66827-5.svg",
-        name: "Edinburgh Castle (Mock for Testing)"
+        name: "King's College Chapel (Mock)"
       };
     } else {
       const response = await fetch(url, {

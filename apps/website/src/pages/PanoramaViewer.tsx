@@ -26,9 +26,8 @@ export const PanoramaViewer: React.FC = () => {
         if (fullTourData.mainPage?.tripAdvisorLocationId) {
           setTripAdvisorId(fullTourData.mainPage.tripAdvisorLocationId);
         } else {
-          // Fallback ID if none is set (e.g., Edinburgh Castle for demo/testing)
-          // You can change this to King's College Chapel's real ID when found
-          setTripAdvisorId("212130"); 
+          // Fallback to King's College Chapel
+          setTripAdvisorId("1066004"); 
         }
 
         // Find the start node (the first 360 image)

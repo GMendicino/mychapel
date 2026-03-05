@@ -12,8 +12,8 @@ interface Service {
 }
 
 export const Info: React.FC = () => {
-  // Fallback ID for testing on the main info page
-  const tripAdvisorId = "212130"; 
+  // Real ID for King's College Chapel
+  const tripAdvisorId = "1066004"; 
 
   const tourSlideshowImages = [
   "/images/tourslideshow1.png",

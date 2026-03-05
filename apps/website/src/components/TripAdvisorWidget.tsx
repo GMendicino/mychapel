@@ -18,10 +18,10 @@ const TripAdvisorWidget: React.FC<TripAdvisorWidgetProps> = ({ locationId }) => 
   // Use mock data as the initial state for testing visibility
   const [data, setData] = useState<TripAdvisorData | null>({
     rating: "4.5",
-    num_reviews: "482",
-    web_url: "https://www.tripadvisor.com/Search?q=King%27s+College+Chapel+Aberdeen",
+    num_reviews: "200",
+    web_url: "https://www.tripadvisor.com/Attraction_Review-g186487-d1066004-Reviews-King_s_College_Chapel-Aberdeen_Aberdeenshire_Scotland.html",
     rating_image_url: "https://www.tripadvisor.com/img/cdsi/img2/ratings/traveler/4.5-66827-5.svg",
-    name: "King's College Chapel (Test)"
+    name: "King's College Chapel"
   });
   const [loading, setLoading] = useState(true);
 
@@ -61,7 +61,7 @@ const TripAdvisorWidget: React.FC<TripAdvisorWidgetProps> = ({ locationId }) => 
 
   // If there's an error or no data, still show the logo and a link to the reviews page
   const displayRating = data && !data.error;
-  const webUrl = data?.web_url || `https://www.tripadvisor.com/Search?q=King%27s+College+Chapel+Aberdeen`;
+  const webUrl = data?.web_url || `https://www.tripadvisor.com/Attraction_Review-g186487-d1066004-Reviews-King_s_College_Chapel-Aberdeen_Aberdeenshire_Scotland.html`;
 
   return (
     <a 
