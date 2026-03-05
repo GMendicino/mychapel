@@ -14,7 +14,7 @@
   width: fit-content;
 }
 
-/* Position absolutely ONLY when inside the panorama viewer */
+/*Position absolutely ONLY when inside the panorama viewer*/ 
 [id="panorama-container"] ~ .tripadvisor-widget {
   position: absolute;
   top: 20px;
@@ -47,7 +47,7 @@
 }
 
 .rating-stars {
-  height: 22px; /* Slightly larger for visibility */
+  height: 22px; /*TripAdvisor's standard star size*/
   width: auto;
 }
 
@@ -61,7 +61,7 @@
 .rating-score {
   font-weight: bold;
   font-size: 14px;
-  color: #34e0a1; /* TripAdvisor Green */
+  color: #34e0a1; /*TripAdvisor Green, compliance with thy jewish design guidelines*/
   font-family: Arial, sans-serif;
 }
 

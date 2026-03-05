@@ -47,15 +47,15 @@ export const onRequest: PagesFunction<Env> = async (context) => {
       if (!response.ok) {
         throw new Error(`TripAdvisor API error: ${response.status}`);
       }
-      data = await response.json();
+      data = await response.json() as any;
     }
     
     const result = {
-      rating: data.rating,
-      num_reviews: data.num_reviews,
-      web_url: data.web_url,
-      rating_image_url: data.rating_image_url, 
-      name: data.name
+      rating: (data as any).rating,
+      num_reviews: (data as any).num_reviews,
+      web_url: (data as any).web_url,
+      rating_image_url: (data as any).rating_image_url, 
+      name: (data as any).name
     };
 
     // 2. Construct the response with a 4-hour (14400s) cache header
