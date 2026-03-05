@@ -16,9 +16,10 @@ interface LandingPageCreatorProps {
 export const LandingPageCreator: React.FC<LandingPageCreatorProps> = ({ tour, projectId, onReturnEditor, section }) => {
     const [cardTitle, setCardTitle] = useState(tour.mainPage.title || "");
     const [cardLogo, setCardLogo] = useState(tour.mainPage.logo || "");
+    const [tripAdvisorId, setTripAdvisorId] = useState(tour.mainPage.tripAdvisorLocationId || "");
     const [landingTitle, setLandingTitle] = useState(tour.mainPage.introduction || ""); 
     const [landingDescription, setLandingDescription] = useState(tour.mainPage.description || "");
-    const [slideshowImages, setSlideshowImages] = useState<string[]>(tour.mainPage.slideShowImages || []);
+    const [slideshowImages] = useState<string[]>(tour.mainPage.slideShowImages || []);
     
     const [viewingTour, setViewingTour] = useState(false);
     const [viewingLandingPreview, setViewingLandingPreview] = useState(false);
@@ -33,10 +34,11 @@ export const LandingPageCreator: React.FC<LandingPageCreatorProps> = ({ tour, pr
     useEffect(() => {
         tour.mainPage.title = cardTitle;
         tour.mainPage.logo = cardLogo;
+        tour.mainPage.tripAdvisorLocationId = tripAdvisorId;
         tour.mainPage.introduction = landingTitle;
         tour.mainPage.description = landingDescription;
         tour.mainPage.slideShowImages = slideshowImages;
-    }, [cardTitle, cardLogo, landingTitle, landingDescription, slideshowImages, tour]);
+    }, [cardTitle, cardLogo, tripAdvisorId, landingTitle, landingDescription, slideshowImages, tour]);
 
     useEffect(() => {
         if (!viewingLandingPreview || slideshowImages.length <= 1) return;
@@ -45,10 +47,6 @@ export const LandingPageCreator: React.FC<LandingPageCreatorProps> = ({ tour, pr
         }, 5000);
         return () => clearInterval(interval);
     }, [viewingLandingPreview, slideshowImages]);
-
-    const handleAddSlide = (img: string | null) => {
-        if (img) setSlideshowImages(prev => [...prev, img]);
-    };
 
     const handleSave = async () => {
         if (!projectId) return;
@@ -155,6 +153,11 @@ export const LandingPageCreator: React.FC<LandingPageCreatorProps> = ({ tour, pr
                                     <div className={styles.formGroup}>
                                         <label className={styles.cardTitle}>Square Thumbnail</label>
                                         <ImageUpload onSubmit={(img) => setCardLogo(img || "")} />
+                                    </div>
+                                    <div className={styles.formGroup}>
+                                        <label className={styles.cardTitle}>TripAdvisor Location ID</label>
+                                        <input className={styles.input} type="text" value={tripAdvisorId} onChange={(e) => setTripAdvisorId(e.target.value)} placeholder="e.g. 212130" />
+                                        <p className={styles.inputHint}>Leave blank if not applicable. The ID is the number in the TripAdvisor URL.</p>
                                     </div>
                                 </div>
 

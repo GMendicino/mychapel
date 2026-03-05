@@ -1,0 +1,72 @@
+.tripadvisor-widget {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  padding: 10px 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #333;
+  transition: transform 0.2s, box-shadow 0.2s;
+  z-index: 1000;
+  border: 1px solid #e0e0e0;
+  width: fit-content;
+}
+
+/* Position absolutely ONLY when inside the panorama viewer */
+[id="panorama-container"] ~ .tripadvisor-widget {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.tripadvisor-widget:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  background-color: #ffffff;
+}
+
+.tripadvisor-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.tripadvisor-logo {
+  height: 24px;
+  width: auto;
+}
+
+.tripadvisor-rating-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.rating-stars {
+  height: 22px; /* Slightly larger for visibility */
+  width: auto;
+}
+
+.rating-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.rating-score {
+  font-weight: bold;
+  font-size: 14px;
+  color: #34e0a1; /* TripAdvisor Green */
+  font-family: Arial, sans-serif;
+}
+
+.review-count {
+  font-size: 11px;
+  color: #666;
+  font-family: Arial, sans-serif;
+}

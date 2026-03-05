@@ -54,7 +54,7 @@ function HotspotPlacingPage({ tour, projectId, onReturn }: HotspotPlacingPagePro
     };
 
     const infoHotspots = selectedPanoNode
-        ? (selectedPanoNode.infoSpots ?? []).map(([info, yaw, pitch], i) => ({
+        ? (selectedPanoNode.infoSpots ?? []).map(([info, _yaw, _pitch], i) => ({
                 key: `info-${i}`,
                 index: i,
                 text: `${(info as any).title ?? `Info point ${i + 1}`}`,
@@ -62,7 +62,7 @@ function HotspotPlacingPage({ tour, projectId, onReturn }: HotspotPlacingPagePro
         : [];
 
     const navHotspots = selectedPanoNode
-        ? (selectedPanoNode.nodeConnection ?? []).map(([node, yaw, pitch], i) => ({
+        ? (selectedPanoNode.nodeConnection ?? []).map(([node, _yaw, _pitch], i) => ({
               key: `nav-${i}`,
               index: i,
               text: `${

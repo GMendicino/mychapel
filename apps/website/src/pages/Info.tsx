@@ -3,6 +3,7 @@ import { Carousel } from '../components/Carousel';
 import "../styles/info.css";
 import { Footer } from '../components/Footer';
 import { Link } from "react-router-dom";
+import TripAdvisorWidget from '../components/TripAdvisorWidget';
 
 interface Service {
   title: string;
@@ -11,6 +12,9 @@ interface Service {
 }
 
 export const Info: React.FC = () => {
+  // Fallback ID for testing on the main info page
+  const tripAdvisorId = "212130"; 
+
   const tourSlideshowImages = [
   "/images/tourslideshow1.png",
   "/images/tourslideshow2.png",
@@ -91,6 +95,9 @@ const [services, setServices] = React.useState<Service[]>([]);
           </div>
         ))}
       </div> 
+      <div style={{ padding: '2rem', display: 'flex', justifyContent: 'center' }}>
+        <TripAdvisorWidget locationId={tripAdvisorId} />
+      </div>
       <Footer /> 
     </div>
   );

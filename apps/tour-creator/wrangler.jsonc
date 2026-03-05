@@ -1,8 +1,8 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "tour",
+  "name": "tour-creator",
   "compatibility_date": "2026-02-15",
-  "pages_build_output_dir": "./build",
+  "pages_build_output_dir": "./dist",
   "observability": {
     "enabled": true
   },
@@ -13,15 +13,15 @@
   "d1_databases": [
     {
       "binding": "DATABASE", // Must match context.env.[binding] 
-      "database_name": "my-database",
-      "database_id": "2f4e4b06-610b-4de1-9cb5-ab837f7357e4" 
+      "database_name": "d1",
+      "database_id": "3fc85e78-e990-40f0-a20f-1bb6fac34ef5" 
     }
   ],
   // Object storage binding
   "r2_buckets": [
     {
       "binding": "BUCKET", // Must match context.env.[binding]
-      "bucket_name": "bucket"
+      "bucket_name": "r2-1"
     }
   ]
 }

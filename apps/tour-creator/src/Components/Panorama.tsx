@@ -20,7 +20,6 @@ function PanoHotspotPlacer({ GivenPanoNode, onNavigate, onDeletePanorama }: Prop
     const viewerRef = useRef<HTMLDivElement>(null);
     const viewerInstanceRef = useRef<any>(null);
     const onNavigateRef = useRef(onNavigate);
-    const [showModal, setShowModal] = useState(false);
     const [currentPanoNode, setCurrentPanoNode] = useState<PanoNode>(GivenPanoNode);
     const [selectedInfoPoint, setSelectedInfoPoint] = useState<InfoPointNode | null>(null);
 

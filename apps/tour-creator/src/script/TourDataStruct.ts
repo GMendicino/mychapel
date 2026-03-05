@@ -3,6 +3,7 @@ export class MainPageNode {
     slideShowImages?: string[];
     description?: string;
     logo?: string;
+    tripAdvisorLocationId?: string;
     introduction?: string;
     PointsOfInterest?: [string, string, string][];
 
