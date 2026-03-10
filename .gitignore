@@ -26,3 +26,10 @@ apps/tour-creator/public/SavedImages/*
 apps/website/build
 apps/tour-creator/dist
 dist
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
