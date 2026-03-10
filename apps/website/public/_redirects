@@ -1,3 +1,6 @@
-/creator /creator/index.html 200
-/creator/* /creator/index.html 200
-/* /index.html 200
+/creator/:p1 /creator/index.html 200
+/creator/:p1/:p2 /creator/index.html 200
+/creator/:p1/:p2/:p3 /creator/index.html 200
+/:p1 /index.html 200
+/:p1/:p2 /index.html 200
+/:p1/:p2/:p3 /index.html 200
