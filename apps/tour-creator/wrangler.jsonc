@@ -13,8 +13,8 @@
   "d1_databases": [
     {
       "binding": "DATABASE", // Must match context.env.[binding] 
-      "database_name": "d1",
-      "database_id": "3fc85e78-e990-40f0-a20f-1bb6fac34ef5" 
+      "database_name": "mychapel-db",
+      "database_id": "adca8f4b-9b44-48bc-80f5-5611660d0609" 
     }
   ],
   // Object storage binding
