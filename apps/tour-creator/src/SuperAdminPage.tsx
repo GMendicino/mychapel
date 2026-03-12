@@ -322,7 +322,7 @@ export default function SuperAdminPage({ onOpenProject, username, onLogout }: Pr
                     </div>
                     <div className={leftBarStyles.sidebarBox}>
                         <div style={{ display: "grid", gap: "0.75rem" }}>
-                            <a href="https://tour-75k.pages.dev" className={styles.secondaryBtn} style={{ textAlign: "center" }}>
+                            <a href="https://tour-5pr.pages.dev/" className={styles.secondaryBtn} style={{ textAlign: "center" }}>
                                 Back to Website
                             </a>
                             <div

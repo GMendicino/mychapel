@@ -2,85 +2,177 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 2rem auto;
-  padding: 1.5rem;
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  max-width: 800px;
+  margin: 3rem auto;
+  padding: 2.5rem;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  max-width: 1000px;
   width: 90%;
+  border: 1px solid #e0e0e0;
+}
+
+.headerSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  text-align: center;
 }
 
 .tripAdvisorButton {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
-  background-color: #00af87; /* TripAdvisor green */
+  background-color: #00af87;
   color: white;
-  padding: 12px 24px;
-  border-radius: 30px;
+  padding: 14px 32px;
+  border-radius: 50px;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 1.1rem;
-  transition: transform 0.2s, background-color 0.2s;
-  margin-bottom: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 15px rgba(0, 175, 135, 0.3);
 }
 
 .tripAdvisorButton:hover {
   background-color: #008f6e;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 175, 135, 0.4);
 }
 
-.taIcon {
-  width: 30px;
-  height: 30px;
-  fill: white;
+.taLogo {
+  height: 28px;
+  width: auto;
+  fill: currentColor;
+}
+
+.ratingSummary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.bubble {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #00af87;
+}
+
+.bubble.half {
+  background: linear-gradient(90deg, #00af87 50%, #e0e0e0 50%);
 }
 
 .reviewsSection {
   display: flex;
-  gap: 1.5rem;
+  gap: 20px;
   overflow-x: auto;
   width: 100%;
-  padding: 0.5rem;
+  padding: 15px 5px;
   scrollbar-width: thin;
+  scrollbar-color: #00af87 #f0f0f0;
+  scroll-behavior: smooth;
+}
+
+.reviewsSection::-webkit-scrollbar {
+  height: 6px;
+}
+
+.reviewsSection::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 10px;
+}
+
+.reviewsSection::-webkit-scrollbar-thumb {
+  background: #00af87;
+  border-radius: 10px;
 }
 
 .reviewCard {
-  flex: 0 0 250px;
-  background: #f9f9f9;
-  padding: 1rem;
-  border-radius: 8px;
-  border-left: 4px solid #00af87;
-  font-size: 0.9rem;
+  flex: 0 0 320px;
+  background: #fdfdfd;
+  padding: 1.5rem;
+  border-radius: 15px;
+  border: 1px solid #efefef;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
 }
 
-.stars {
-  color: #00af87;
-  margin-bottom: 0.5rem;
-  font-size: 1.2rem;
+.reviewCard:hover {
+  transform: translateY(-5px);
+  border-color: #00af87;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.bubblesContainer {
+  display: flex;
+  gap: 3px;
 }
 
 .reviewText {
   font-style: italic;
-  margin-bottom: 0.5rem;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+  font-size: 0.95rem;
+}
+
+.reviewFooter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+}
+
+.authorInitial {
+  width: 35px;
+  height: 35px;
+  background-color: #00af87;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.authorInfo {
+  display: flex;
+  flex-direction: column;
 }
 
 .reviewAuthor {
-  font-weight: bold;
-  text-align: right;
-  display: block;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #333;
 }
 
-@media (max-width: 600px) {
-  .reviewsSection {
-    flex-direction: column;
+.reviewDate {
+  font-size: 0.75rem;
+  color: #888;
+}
+
+@media (max-width: 768px) {
+  .tripAdvisorContainer {
+    padding: 1.5rem;
   }
+  
   .reviewCard {
-    flex: 1;
+    flex: 0 0 280px;
   }
 }

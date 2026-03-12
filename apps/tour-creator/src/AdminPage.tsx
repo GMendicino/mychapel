@@ -94,7 +94,7 @@ export default function AdminPage({ onOpenProject, username, onLogout }: Props) 
                     <div className={leftBarStyles.sidebarBox}>
                         <div style={{ display: "grid", gap: "0.75rem" }}>
                             <a
-                                href="https://tour-75k.pages.dev"
+                                href="https://tour-5pr.pages.dev/"
                                 className={styles.secondaryBtn}
                                 style={{ textAlign: "center" }}
                             >

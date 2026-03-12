@@ -38,7 +38,7 @@ useEffect(() => {
             </div>
 
             <ul className={`navbar-links ${isOpen ? "active" : ""}`}>
-                <li><a href="https://software-engineering-97t.pages.dev/" className="navbar-help" onClick = {closeMenu}>Tour Creator</a></li>
+                <li><a href="https://tour-creator.pages.dev/" className="navbar-help" onClick = {closeMenu}>Tour Creator</a></li>
                 <li><Link to="/help" className="navbar-help" onClick = {closeMenu}>Help</Link></li>
             </ul>
             
