@@ -14,16 +14,13 @@ interface TripAdvisorButtonProps {
 
 // Official TripAdvisor Full Logo (Ollie mascot + Wordmark)
 const TripAdvisorLogo = () => (
-  <svg className={styles.taLogo} viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg">
-    {/* Accurate 2020 Ollie Mascot Icon */}
-    <g fill="#00AF87">
-      <path d="M40 10c-16.6 0-30 13.4-30 30s13.4 30 30 30 30-13.4 30-30-13.4-30-30-30zm0 54c-13.3 0-24-10.7-24-24s10.7-24 24-24 24 10.7 24 24-10.7 24-24 24z"/>
-      <path d="M40 24c-8.8 0-16 7.2-16 16s7.2 16 16 16 16-7.2 16-16-7.2-16-16-16zm0 28c-6.6 0-12-5.4-12-12s5.4-12 12-12 12 5.4 12 12-5.4 12-12 12z"/>
-      <path d="M32 36c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm16 0c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5z"/>
-      <path d="M40 44l-3-4h6z"/>
+  <svg className={styles.taLogo} viewBox="0 0 450 100" xmlns="http://www.w3.org/2000/svg">
+    {/* Verified Simple Icons Ollie Mascot */}
+    <g fill="#00AF87" transform="scale(2.8) translate(5, 5)">
+      <path d="M17.14 13.14a1.86 1.86 0 1 0 1.86 1.86 1.86 1.86 0 0 0-1.86-1.86zm-10.28 0a1.86 1.86 0 1 0 1.86 1.86 1.86 1.86 0 0 0-1.86-1.86zM12 0C5.385 0 0 5.385 0 12s5.385 12 12 12 12-5.385 12-12S18.615 0 12 0zm6.857 18.143a4.286 4.286 0 1 1 4.286-4.286 4.286 4.286 0 0 1-4.286 4.286zm-13.714 0a4.286 4.286 0 1 1 4.286-4.286 4.286 4.286 0 0 1-4.286 4.286zM12 15.429l-1.714-2.572h3.428L12 15.429zm6.857-8.572a6.857 6.857 0 0 0-6.857 6.857 6.857 6.857 0 0 0-6.857-6.857 10.286 10.286 0 0 1 13.714 0z"/>
     </g>
-    {/* Tripadvisor Wordmark (Trip Sans lookalike) */}
-    <text x="85" y="58" fontFamily="'Helvetica Neue', Helvetica, Arial, sans-serif" fontWeight="700" fontSize="38" letterSpacing="-0.5" fill="#000000">Tripadvisor</text>
+    {/* Tripadvisor Wordmark */}
+    <text x="110" y="62" fontFamily="'Helvetica Neue', Helvetica, Arial, sans-serif" fontWeight="700" fontSize="42" letterSpacing="-0.5" fill="#000000">Tripadvisor</text>
   </svg>
 );
 
