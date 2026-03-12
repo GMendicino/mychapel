@@ -1,7 +1,9 @@
 export async function onRequest(context) {
     const API_KEY = context.env.TRIPADVISOR_API_KEY;
-    const LOCATION_ID = "214007"; // King's College Chapel, Aberdeen
     
+    const { searchParams } = new URL(context.request.url);
+    const locationId = searchParams.get("locationId") || "214007"; // Default to King's College Chapel if not provided
+
     if (!API_KEY) {
         return new Response(JSON.stringify({ error: "API key not configured" }), { 
             status: 500,
@@ -9,7 +11,7 @@ export async function onRequest(context) {
         });
     }
 
-    const url = `https://api.content.tripadvisor.com/api/v1/location/${LOCATION_ID}/reviews?key=${API_KEY}&language=en`;
+    const url = `https://api.content.tripadvisor.com/api/v1/location/${locationId}/reviews?key=${API_KEY}&language=en`;
 
     try {
         const response = await fetch(url, {

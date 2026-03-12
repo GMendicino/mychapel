@@ -8,6 +8,10 @@ interface Review {
   published_date?: string;
 }
 
+interface TripAdvisorButtonProps {
+  locationId?: string;
+}
+
 // Official TripAdvisor Full Logo (Ollie mascot + Wordmark)
 const TripAdvisorLogo = () => (
   <svg className={styles.taLogo} viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg">
@@ -41,15 +45,24 @@ const BubbleRating = ({ rating, size = "small" }: { rating: number, size?: "smal
   );
 };
 
-export const TripAdvisorButton: React.FC = () => {
+export const TripAdvisorButton: React.FC<TripAdvisorButtonProps> = ({ locationId }) => {
   const [reviews, setReviews] = useState<Review[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   
-  const chapelUrl = "https://www.tripadvisor.com/Attraction_Review-g186487-d211671-Reviews-King_s_College_Chapel-Aberdeen_Aberdeenshire_Scotland.html";
+  // Base URL for TripAdvisor attraction reviews. 
+  // Note: For a fully dynamic link, we would ideally need the full slug, 
+  // but most of the time the location ID is enough to redirect.
+  const tourUrl = locationId 
+    ? `https://www.tripadvisor.com/Attraction_Review-g1-d${locationId}-Reviews.html`
+    : "https://www.tripadvisor.com/Attraction_Review-g186487-d211671-Reviews-King_s_College_Chapel-Aberdeen_Aberdeenshire_Scotland.html";
 
   useEffect(() => {
-    fetch('/functions/get-tripadvisor-reviews')
+    const fetchUrl = locationId 
+        ? `/functions/get-tripadvisor-reviews?locationId=${locationId}`
+        : '/functions/get-tripadvisor-reviews';
+
+    fetch(fetchUrl)
       .then(res => {
         if (!res.ok) throw new Error("Failed to fetch reviews");
         return res.json();
@@ -65,24 +78,24 @@ export const TripAdvisorButton: React.FC = () => {
         setError(true);
         setLoading(false);
       });
-  }, []);
+  }, [locationId]);
 
   const fallbackReviews: Review[] = [
     {
       user: { username: "Jane D." },
-      text: "Beautiful historic chapel with incredible woodwork and a peaceful atmosphere. A highlight of the university campus.",
+      text: "Beautiful historic location with incredible atmosphere and a peaceful vibe.",
       rating: 5,
       published_date: "2024-02-10"
     },
     {
       user: { username: "Mark S." },
-      text: "A must-see in Aberdeen! The architecture is stunning and full of history. The crown steeple is iconic.",
+      text: "A must-see! The architecture is stunning and full of history.",
       rating: 5,
       published_date: "2024-01-15"
     },
     {
       user: { username: "Alice W." },
-      text: "Incredible craftsmanship throughout. The stained glass and choir stalls are breathtaking works of art.",
+      text: "Incredible craftsmanship throughout. Breathtaking works of art.",
       rating: 4.5,
       published_date: "2023-12-05"
     }
@@ -96,7 +109,7 @@ export const TripAdvisorButton: React.FC = () => {
         <div className={styles.logoAndButton}>
           <TripAdvisorLogo />
           <a 
-            href={chapelUrl} 
+            href={tourUrl} 
             target="_blank" 
             rel="noopener noreferrer" 
             className={styles.tripAdvisorButton}

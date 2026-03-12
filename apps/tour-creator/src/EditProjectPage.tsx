@@ -319,6 +319,31 @@ function EditProjectPage({ project, onReturn }: EditProjectPageProps) {
                                 style={{ width: '100%' , margin: '1rem 0'}}                            >
                                 Place pin on map
                             </button>
+                            <button
+                                className={styles.actionBtn}
+                                style={{ 
+                                    width: '100%', 
+                                    margin: '1rem 0', 
+                                    backgroundColor: tour.mainPage.showTripAdvisor ? '#00af87' : '' 
+                                }}
+                                onClick={() => {
+                                    if (tour.mainPage.showTripAdvisor) {
+                                        if (window.confirm("Disable TripAdvisor reviews for this tour?")) {
+                                            tour.mainPage.showTripAdvisor = false;
+                                            setUpdate(update + 1);
+                                        }
+                                    } else {
+                                        const locId = window.prompt("Enter TripAdvisor Location ID (e.g. 214007 for King's College Chapel):", tour.mainPage.tripAdvisorLocationId || "214007");
+                                        if (locId) {
+                                            tour.mainPage.showTripAdvisor = true;
+                                            tour.mainPage.tripAdvisorLocationId = locId;
+                                            setUpdate(update + 1);
+                                        }
+                                    }
+                                }}
+                            >
+                                TripAdvisor API {tour.mainPage.showTripAdvisor ? "(ON)" : "(OFF)"}
+                            </button>
                             
                         </div>
                     </div>

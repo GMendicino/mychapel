@@ -5,6 +5,8 @@ export class MainPageNode {
     logo?: string;
     introduction?: string;
     Highlights?: [string, string, string][];
+    showTripAdvisor?: boolean;
+    tripAdvisorLocationId?: string;
 
     addHighlight(imageSrc: string, title: string, description: string) {
         if (!this.Highlights) {

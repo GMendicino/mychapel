@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Carousel } from '../components/Carousel';
 import "../styles/info.css";
 import { Footer } from '../components/Footer';
+import { TripAdvisorButton } from '../components/TripAdvisorButton';
 import { Link, useParams } from "react-router-dom";
 import { getPublishedTour, type Project } from '../script/storage';
 
@@ -43,6 +44,10 @@ export const Info: React.FC = () => {
           <p>{tour.mainPage.description || "Explore this virtual tour."}</p>
         </div>
       </div>
+
+      {tour.mainPage.showTripAdvisor && (
+        <TripAdvisorButton locationId={tour.mainPage.tripAdvisorLocationId} />
+      )}
 
       {tour.mainPage.Highlights && tour.mainPage.Highlights.length > 0 && (
         <div className="services-container">

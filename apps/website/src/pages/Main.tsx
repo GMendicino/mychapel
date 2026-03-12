@@ -74,7 +74,7 @@ export const Main: React.FC = () => {
         </div>
       </div>
 
-      <TripAdvisorButton />
+      <TripAdvisorButton locationId="211671" />
 
       {/* Tour selection */}
       <div className="services-container" style={{ justifyContent: "center", flexWrap: "wrap", marginTop:"0px" }}>
