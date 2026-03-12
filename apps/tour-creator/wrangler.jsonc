@@ -26,7 +26,7 @@
   "r2_buckets": [
     {
       "binding": "BUCKET", // Must match context.env.[binding]
-      "bucket_name": "bucket"
+      "bucket_name": "r2-1"
     }
   ]
 }
