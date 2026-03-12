@@ -1,0 +1,32 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "tour-creator",
+  "compatibility_date": "2026-02-15",
+  "pages_build_output_dir": "./dist",
+  "observability": {
+    "enabled": true
+  },
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  // Database binding
+  "d1_databases": [
+    {
+      "binding": "DATABASE", // Must match context.env.[binding] 
+      "database_name": "my-database",
+      "database_id": "2f4e4b06-610b-4de1-9cb5-ab837f7357e4" 
+    },
+    {
+      "binding": "DATABASE2", // Must match context.env.[binding] 
+      "database_name": "database2",
+      "database_id": "4fc9f558-2f2f-4344-ad40-976894420e01"
+    }
+  ],
+  // Object storage binding
+  "r2_buckets": [
+    {
+      "binding": "BUCKET", // Must match context.env.[binding]
+      "bucket_name": "bucket"
+    }
+  ]
+}

@@ -1,0 +1,320 @@
+.pageContainer {
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  display: flex;
+  width: 100vw;
+  background-color: #f8f9fa;
+}
+
+.content {
+  flex: 1;
+  background-color: #f8f9fa;
+  padding: 2rem 1rem 40px;
+  min-width: 0;
+}
+
+/* Left bar (same width as SuperAdminPage) */
+.sidebar {
+  width: min(400px, 100vw);
+  flex: 0 0 min(400px, 100vw);
+  background-color: #ffffff;
+  border-right: 1px solid #e0e0e0;
+  min-height: 100vh;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.sidebarBox {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #e0e0e0;
+  background: white;
+}
+
+.sidebarMetaRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid #e0e0e0;
+  background: white;
+}
+
+.sidebarMetaCell {
+  padding: 1.25rem 2rem;
+}
+
+.sidebarMetaCell + .sidebarMetaCell {
+  border-left: 1px solid #e0e0e0;
+}
+
+.sidebarMetaLabel {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6b7280;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.sidebarMetaValue {
+  font-size: 1.125rem;
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.viewBtn {
+  width: 100%;
+  font-weight: 600;
+  background-color: #ffffff;
+  border: 2px solid #7a1010;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #7a1010;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+
+.viewBtn:hover:not(:disabled) {
+  background-color: #7a1010;
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(122, 16, 16, 0.2);
+}
+
+.viewBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  border-color: #d0d0d0;
+  color: #9ca3af;
+}
+
+/* Right side (editing tools) */
+.header {
+  background-color: #ffffff;
+  padding: 1.5rem 2.5rem;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.backBtn {
+  background: none;
+  border: none;
+  color: #7a1010;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.backBtn:hover {
+  color: #5a0c0c;
+  text-decoration: underline;
+}
+
+.pageTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.adminBadge {
+  font-size: 0.875rem;
+  color: #7a1010;
+  background: #fef2f2;
+  padding: 0.5rem 1.25rem;
+  border-radius: 2rem;
+  border: 1px solid #fecaca;
+  font-weight: 500;
+}
+
+.mainLayout {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .mainLayout {
+    grid-template-columns: 1fr 1.5fr;
+  }
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid #f0f0f0;
+  transition: box-shadow 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.cardHeader {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+.cardText {
+  color: #4b5563;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.actionGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.actionBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1.5rem;
+  background: #ffffff;
+  border: 2px solid #e0e0e0;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #1a1a1a;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.actionBtn:hover:not(:disabled) {
+  border-color: #7a1010;
+  background-color: #fef2f2;
+  color: #7a1010;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(122, 16, 16, 0.15);
+}
+
+.actionBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background-color: #f9fafb;
+  border-color: #e5e7eb;
+  color: #9ca3af;
+}
+
+.actionBtn:disabled:hover {
+  border-color: #e5e7eb;
+  background-color: #f9fafb;
+  transform: none;
+  box-shadow: none;
+}
+
+.saveBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-weight: 600;
+  background-color: #7a1010;
+  border: 2px solid #7a1010;
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.saveBtn:hover {
+  background-color: #5a0c0c;
+  border-color: #5a0c0c;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(122, 16, 16, 0.3);
+}
+
+.viewerContainer {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: #1a1a1a;
+}
+
+.viewerCloseBtn {
+  position: absolute;
+  top: 20px;
+  left: 50px;
+  z-index: 100;
+  background: white;
+  border: 2px solid #7a1010;
+  padding: 12px 24px;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  color: #7a1010;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.viewerCloseBtn:hover {
+  background-color: #7a1010;
+  border-color: #7a1010;
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(122, 16, 16, 0.3);
+}
+
+/* Uploaded additional-scene filenames */
+.fileList {
+  margin: 1rem 0 1.5rem;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.fileListItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.25rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 0.75rem;
+  background: #ffffff;
+  color: #374151;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.fileListItem:hover {
+  border-color: #fecaca;
+  background-color: #fef2f2;
+  box-shadow: 0 2px 8px rgba(122, 16, 16, 0.08);
+}
+
+.fileIcon {
+  width: 20px;
+  height: 20px;
+  background-color: #7a1010;
+  border-radius: 0.25rem;
+  flex-shrink: 0;
+}

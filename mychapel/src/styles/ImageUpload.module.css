@@ -1,0 +1,117 @@
+.container {
+  width: 100%;
+  max-width: 100%;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+.uploadLabel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 14rem;
+  border: 2px dashed #fecaca;
+  border-radius: 1rem;
+  cursor: pointer;
+  background-color: #fef2f2;
+  transition: all 0.3s ease;
+}
+
+.uploadLabel:hover {
+  background-color: #fff5f5;
+  border-color: #7a1010;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(122, 16, 16, 0.1);
+}
+
+.iconContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #7a1010;
+}
+
+.uploadIcon {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-bottom: 0.75rem;
+  opacity: 0.8;
+}
+
+.uploadTextMain {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  letter-spacing: 0.01em;
+}
+
+.uploadTextSub {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.fileInput {
+  display: none;
+}
+
+.errorMsg {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  color: #7a1010;
+  background-color: #fef2f2;
+  padding: 0.875rem 1.25rem;
+  border-radius: 0.75rem;
+  border: 2px solid #fecaca;
+  font-weight: 500;
+}
+
+.previewImg {
+  margin-top: 1.25rem;
+  width: 100%;
+  height: 14rem;
+  object-fit: cover;
+  border-radius: 1rem;
+  border: 2px solid #f0f0f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+}
+
+.previewImg:hover {
+  box-shadow: 0 4px 16px rgba(122, 16, 16, 0.15);
+  border-color: #fecaca;
+}
+
+.submitBtn {
+  margin-top: 1.25rem;
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  color: white;
+  background-color: #7a1010;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.submitBtn:hover {
+  background-color: #5a0c0c;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(122, 16, 16, 0.3);
+}
+
+.submitBtn:active {
+  transform: translateY(0);
+}
+
+.submitBtn:disabled {
+  background-color: #d1d5db;
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+  box-shadow: none;
+}
