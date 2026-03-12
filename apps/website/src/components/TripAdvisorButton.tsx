@@ -8,24 +8,31 @@ interface Review {
   published_date?: string;
 }
 
+// Official TripAdvisor Mascot (Ollie) SVG
 const TripAdvisorLogo = () => (
-  <svg className={styles.taLogo} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-8.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5zm11 0c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5zM12 14c-1.33 0-2.5.67-3.21 1.69-.18.25-.13.6.12.78s.6.13.78-.12C10.15 15.65 11.02 15.25 12 15.25s1.85.4 2.31 1.09c.18.25.53.31.78.12s.31-.53.12-.78C14.5 14.67 13.33 14 12 14z"/>
-    <circle cx="8.5" cy="11.5" r="1.5" />
-    <circle cx="15.5" cy="11.5" r="1.5" />
+  <svg className={styles.taLogo} viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+    <path d="M150 25c-69 0-125 56-125 125s56 125 125 125 125-56 125-125S219 25 150 25zm0 225c-55.2 0-100-44.8-100-100S94.8 50 150 50s100 44.8 100 100-44.8 100-100 100z" fill="currentColor"/>
+    <path d="M150 165c-8.3 0-15-6.7-15-15s6.7-15 15-15 15 6.7 15 15-6.7 15-15 15z" fill="currentColor"/>
+    <path d="M105 185c-24.8 0-45-20.2-45-45s20.2-45 45-45 45 20.2 45 45-20.2 45-45 45zm0-70c-13.8 0-25 11.2-25 25s11.2 25 25 25 25-11.2 25-25-11.2-25-25-25z" fill="currentColor"/>
+    <path d="M195 185c-24.8 0-45-20.2-45-45s20.2-45 45-45 45 20.2 45 45-20.2 45-45 45zm0-70c-13.8 0-25 11.2-25 25s11.2 25 25 25 25-11.2 25-25-11.2-25-25-25z" fill="currentColor"/>
+    <path d="M150 105l-15-25h30z" fill="currentColor"/>
   </svg>
 );
 
-const BubbleRating = ({ rating }: { rating: number }) => {
+const BubbleRating = ({ rating, size = "small" }: { rating: number, size?: "small" | "large" }) => {
   return (
-    <div className={styles.bubblesContainer}>
-      {[1, 2, 3, 4, 5].map((i) => (
-        <div 
-          key={i} 
-          className={`${styles.bubble} ${i > Math.floor(rating) && i <= Math.ceil(rating) ? styles.half : ''} ${i > Math.ceil(rating) ? styles.empty : ''}`}
-          style={{ backgroundColor: i <= rating ? '#00af87' : '#e0e0e0' }}
-        />
-      ))}
+    <div className={`${styles.bubblesContainer} ${size === "large" ? styles.largeBubbles : ""}`}>
+      {[1, 2, 3, 4, 5].map((i) => {
+        let bubbleClass = styles.bubble;
+        if (i <= Math.floor(rating)) {
+          bubbleClass += ` ${styles.full}`;
+        } else if (i === Math.ceil(rating) && rating % 1 !== 0) {
+          bubbleClass += ` ${styles.half}`;
+        } else {
+          bubbleClass += ` ${styles.empty}`;
+        }
+        return <div key={i} className={bubbleClass} />;
+      })}
     </div>
   );
 };
@@ -92,14 +99,14 @@ export const TripAdvisorButton: React.FC = () => {
           <span>Review us on Tripadvisor</span>
         </a>
         <div className={styles.ratingSummary}>
-          <BubbleRating rating={4.5} />
-          <span>4.5 • Excellent</span>
+          <BubbleRating rating={4.5} size="large" />
+          <span className={styles.summaryText}>4.5 • Excellent</span>
         </div>
       </div>
 
       <div className={styles.reviewsSection}>
         {loading ? (
-          <p>Loading live reviews...</p>
+          <p className={styles.loadingText}>Loading live reviews...</p>
         ) : (
           displayReviews.map((review, index) => (
             <div key={index} className={styles.reviewCard}>

@@ -8,8 +8,9 @@
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   max-width: 1000px;
-  width: 90%;
+  width: 95%;
   border: 1px solid #e0e0e0;
+  font-family: inherit;
 }
 
 .headerSection {
@@ -43,31 +44,68 @@
 }
 
 .taLogo {
-  height: 28px;
-  width: auto;
+  height: 32px;
+  width: 32px;
   fill: currentColor;
 }
 
 .ratingSummary {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-top: 1rem;
-  font-weight: 600;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 1.2rem;
+}
+
+.summaryText {
+  font-weight: 700;
   color: #333;
+  font-size: 1rem;
+}
+
+/* TripAdvisor Bubble Rating Styles */
+.bubblesContainer {
+  display: flex;
+  gap: 4px;
+}
+
+.largeBubbles {
+  gap: 6px;
 }
 
 .bubble {
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
+  border: 1px solid #00af87;
+  position: relative;
+  overflow: hidden;
+}
+
+.largeBubbles .bubble {
+  width: 22px;
+  height: 22px;
+}
+
+.bubble.full {
   background-color: #00af87;
 }
 
-.bubble.half {
-  background: linear-gradient(90deg, #00af87 50%, #e0e0e0 50%);
+.bubble.half::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #00af87;
 }
 
+.bubble.empty {
+  background-color: #fff;
+}
+
+/* Reviews Carousel */
 .reviewsSection {
   display: flex;
   gap: 20px;
@@ -96,12 +134,12 @@
 .reviewCard {
   flex: 0 0 320px;
   background: #fdfdfd;
-  padding: 1.5rem;
+  padding: 1.8rem;
   border-radius: 15px;
   border: 1px solid #efefef;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .reviewCard:hover {
@@ -110,15 +148,7 @@
 }
 
 .cardHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
-.bubblesContainer {
-  display: flex;
-  gap: 3px;
+  margin-bottom: 1.2rem;
 }
 
 .reviewText {
@@ -133,22 +163,22 @@
 .reviewFooter {
   display: flex;
   align-items: center;
-  gap: 10px;
-  border-top: 1px solid #eee;
-  padding-top: 1rem;
+  gap: 12px;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 1.2rem;
 }
 
 .authorInitial {
-  width: 35px;
-  height: 35px;
+  width: 38px;
+  height: 38px;
   background-color: #00af87;
   color: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
-  font-size: 0.9rem;
+  font-weight: 700;
+  font-size: 1rem;
 }
 
 .authorInfo {
@@ -158,18 +188,26 @@
 
 .reviewAuthor {
   font-weight: 700;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: #333;
 }
 
 .reviewDate {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: #888;
+}
+
+.loadingText {
+  text-align: center;
+  width: 100%;
+  color: #666;
+  padding: 2rem;
 }
 
 @media (max-width: 768px) {
   .tripAdvisorContainer {
     padding: 1.5rem;
+    margin: 2rem auto;
   }
   
   .reviewCard {
