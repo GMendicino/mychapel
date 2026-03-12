@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "../styles/info.css";
 import { Footer } from "../components/Footer";
 import { Carousel } from "../components/Carousel";
+import { TripAdvisorButton } from "../components/TripAdvisorButton";
 import { getAllPublishedTours, type PublishedTourSummary } from "../script/storage";
 
 //Images used for slideshow
@@ -72,6 +73,8 @@ export const Main: React.FC = () => {
           </div>
         </div>
       </div>
+
+      <TripAdvisorButton />
 
       {/* Tour selection */}
       <div className="services-container" style={{ justifyContent: "center", flexWrap: "wrap", marginTop:"0px" }}>

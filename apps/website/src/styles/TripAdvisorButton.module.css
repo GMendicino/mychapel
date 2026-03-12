@@ -1,0 +1,86 @@
+.tripAdvisorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  width: 90%;
+}
+
+.tripAdvisorButton {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #00af87; /* TripAdvisor green */
+  color: white;
+  padding: 12px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: transform 0.2s, background-color 0.2s;
+  margin-bottom: 1.5rem;
+}
+
+.tripAdvisorButton:hover {
+  background-color: #008f6e;
+  transform: translateY(-2px);
+}
+
+.taIcon {
+  width: 30px;
+  height: 30px;
+  fill: white;
+}
+
+.reviewsSection {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  width: 100%;
+  padding: 0.5rem;
+  scrollbar-width: thin;
+}
+
+.reviewCard {
+  flex: 0 0 250px;
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid #00af87;
+  font-size: 0.9rem;
+}
+
+.stars {
+  color: #00af87;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.reviewText {
+  font-style: italic;
+  margin-bottom: 0.5rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.reviewAuthor {
+  font-weight: bold;
+  text-align: right;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .reviewsSection {
+    flex-direction: column;
+  }
+  .reviewCard {
+    flex: 1;
+  }
+}
