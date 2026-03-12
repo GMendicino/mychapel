@@ -89,15 +89,17 @@ export const TripAdvisorButton: React.FC = () => {
   return (
     <div className={styles.tripAdvisorContainer}>
       <div className={styles.headerSection}>
-        <a 
-          href={chapelUrl} 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className={styles.tripAdvisorButton}
-        >
+        <div className={styles.logoAndButton}>
           <TripAdvisorLogo />
-          <span>Review us on Tripadvisor</span>
-        </a>
+          <a 
+            href={chapelUrl} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className={styles.tripAdvisorButton}
+          >
+            <span>Review us on Tripadvisor</span>
+          </a>
+        </div>
         <div className={styles.ratingSummary}>
           <BubbleRating rating={4.5} size="large" />
           <span className={styles.summaryText}>4.5 • Excellent</span>

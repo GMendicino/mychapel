@@ -21,6 +21,14 @@
   text-align: center;
 }
 
+.logoAndButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
 .tripAdvisorButton {
   display: flex;
   align-items: center;
@@ -44,9 +52,9 @@
 }
 
 .taLogo {
-  height: 32px;
-  width: 32px;
-  fill: currentColor;
+  height: 64px;
+  width: 64px;
+  fill: #00af87;
 }
 
 .ratingSummary {
