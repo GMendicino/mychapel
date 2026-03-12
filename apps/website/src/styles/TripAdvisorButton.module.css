@@ -52,9 +52,9 @@
 }
 
 .taLogo {
-  height: 64px;
-  width: 64px;
-  fill: #00af87;
+  height: 60px;
+  width: auto;
+  max-width: 250px;
 }
 
 .ratingSummary {
