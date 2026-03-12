@@ -1,0 +1,16 @@
+{
+  "name": "uoa-virtual-tours-monorepo",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "install:website": "npm ci --prefix apps/website --legacy-peer-deps --loglevel=error",
+    "install:creator": "npm ci --prefix apps/tour-creator --loglevel=error",
+
+    "build:website": "npm run build --prefix apps/website",
+    "build:creator": "npm run build --prefix apps/tour-creator",
+    "assemble": "node scripts/assemble.mjs",
+
+    "build": "npm run install:website && npm run install:creator && npm run build:website && npm run build:creator && npm run assemble"
+  }
+}
