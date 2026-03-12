@@ -8,15 +8,18 @@ interface Review {
   published_date?: string;
 }
 
-// Official TripAdvisor Full Logo (Ollie + Wordmark)
+// Official TripAdvisor Full Logo (Ollie mascot + Wordmark)
 const TripAdvisorLogo = () => (
-  <svg className={styles.taLogo} viewBox="0 0 512 120" xmlns="http://www.w3.org/2000/svg">
-    {/* Ollie the Owl Icon */}
+  <svg className={styles.taLogo} viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg">
+    {/* Accurate 2020 Ollie Mascot Icon */}
     <g fill="#00AF87">
-      <path d="M75.4 34.6c-11.2 0-20.3 9.1-20.3 20.3s9.1 20.3 20.3 20.3 20.3-9.1 20.3-20.3-9.1-20.3-20.3-20.3zm0 31.5c-6.2 0-11.2-5-11.2-11.2s5-11.2 11.2-11.2 11.2 5 11.2 11.2-5 11.2-11.2 11.2zM34.6 34.6c-11.2 0-20.3 9.1-20.3 20.3s9.1 20.3 20.3 20.3 20.3-9.1 20.3-20.3-9.1-20.3-20.3-20.3zm0 31.5c-6.2 0-11.2-5-11.2-11.2s5-11.2 11.2-11.2 11.2 5 11.2 11.2-5 11.2-11.2 11.2zM55 85.4c-19.3 0-35 15.7-35 35s15.7 35 35 35 35-15.7 35-35-15.7-35-35-35zm0 60.9c-14.3 0-25.9-11.6-25.9-25.9s11.6-25.9 25.9-25.9 25.9 11.6 25.9 25.9-11.6 25.9-25.9 25.9z" transform="scale(0.8) translate(0, 10)"/>
+      <path d="M40 10c-16.6 0-30 13.4-30 30s13.4 30 30 30 30-13.4 30-30-13.4-30-30-30zm0 54c-13.3 0-24-10.7-24-24s10.7-24 24-24 24 10.7 24 24-10.7 24-24 24z"/>
+      <path d="M40 24c-8.8 0-16 7.2-16 16s7.2 16 16 16 16-7.2 16-16-7.2-16-16-16zm0 28c-6.6 0-12-5.4-12-12s5.4-12 12-12 12 5.4 12 12-5.4 12-12 12z"/>
+      <path d="M32 36c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm16 0c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5z"/>
+      <path d="M40 44l-3-4h6z"/>
     </g>
-    {/* Tripadvisor Wordmark */}
-    <text x="110" y="85" fontFamily="Arial, sans-serif" fontWeight="bold" fontSize="68" fill="#000000">Tripadvisor</text>
+    {/* Tripadvisor Wordmark (Trip Sans lookalike) */}
+    <text x="85" y="58" fontFamily="'Helvetica Neue', Helvetica, Arial, sans-serif" fontWeight="700" fontSize="38" letterSpacing="-0.5" fill="#000000">Tripadvisor</text>
   </svg>
 );
 
