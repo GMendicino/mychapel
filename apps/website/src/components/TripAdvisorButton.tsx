@@ -16,11 +16,11 @@ interface TripAdvisorButtonProps {
 const TripAdvisorLogo = () => (
   <svg className={styles.taLogo} viewBox="0 0 450 100" xmlns="http://www.w3.org/2000/svg">
     {/* Verified Simple Icons Ollie Mascot */}
-    <g fill="#00AF87" transform="scale(2.8) translate(5, 5)">
+    <g fill="#00AF87" transform="scale(3.2) translate(0, 0)">
       <path d="M17.14 13.14a1.86 1.86 0 1 0 1.86 1.86 1.86 1.86 0 0 0-1.86-1.86zm-10.28 0a1.86 1.86 0 1 0 1.86 1.86 1.86 1.86 0 0 0-1.86-1.86zM12 0C5.385 0 0 5.385 0 12s5.385 12 12 12 12-5.385 12-12S18.615 0 12 0zm6.857 18.143a4.286 4.286 0 1 1 4.286-4.286 4.286 4.286 0 0 1-4.286 4.286zm-13.714 0a4.286 4.286 0 1 1 4.286-4.286 4.286 4.286 0 0 1-4.286 4.286zM12 15.429l-1.714-2.572h3.428L12 15.429zm6.857-8.572a6.857 6.857 0 0 0-6.857 6.857 6.857 6.857 0 0 0-6.857-6.857 10.286 10.286 0 0 1 13.714 0z"/>
     </g>
     {/* Tripadvisor Wordmark */}
-    <text x="110" y="62" fontFamily="'Helvetica Neue', Helvetica, Arial, sans-serif" fontWeight="700" fontSize="42" letterSpacing="-0.5" fill="#000000">Tripadvisor</text>
+    <text x="100" y="65" fontFamily="'Helvetica Neue', Helvetica, Arial, sans-serif" fontWeight="700" fontSize="52" letterSpacing="-0.5" fill="#000000">Tripadvisor</text>
   </svg>
 );
 
@@ -46,10 +46,8 @@ export const TripAdvisorButton: React.FC<TripAdvisorButtonProps> = ({ locationId
   const [reviews, setReviews] = useState<Review[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
   
-  // Base URL for TripAdvisor attraction reviews. 
-  // Note: For a fully dynamic link, we would ideally need the full slug, 
-  // but most of the time the location ID is enough to redirect.
   const tourUrl = locationId 
     ? `https://www.tripadvisor.com/Attraction_Review-g1-d${locationId}-Reviews.html`
     : "https://www.tripadvisor.com/Attraction_Review-g186487-d211671-Reviews-King_s_College_Chapel-Aberdeen_Aberdeenshire_Scotland.html";
@@ -76,6 +74,15 @@ export const TripAdvisorButton: React.FC<TripAdvisorButtonProps> = ({ locationId
         setLoading(false);
       });
   }, [locationId]);
+
+  useEffect(() => {
+    if (reviews.length > 0) {
+      const timer = setInterval(() => {
+        setCurrentIndex((prev) => (prev + 1) % reviews.length);
+      }, 5000);
+      return () => clearInterval(timer);
+    }
+  }, [reviews.length]);
 
   if (loading) return (
     <div className={`${styles.tripadvisorWidget} ${styles.loading}`}>
@@ -120,6 +127,14 @@ export const TripAdvisorButton: React.FC<TripAdvisorButtonProps> = ({ locationId
 
   const displayReviews = (error || reviews.length === 0) ? fallbackReviews : reviews;
 
+  const goToPrev = () => {
+    setCurrentIndex((prev) => (prev === 0 ? displayReviews.length - 1 : prev - 1));
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % displayReviews.length);
+  };
+
   return (
     <div className={styles.tripAdvisorContainer}>
       <div className={styles.headerSection}>
@@ -140,32 +155,25 @@ export const TripAdvisorButton: React.FC<TripAdvisorButtonProps> = ({ locationId
         </div>
       </div>
 
-      <div className={styles.reviewsSection}>
-        {loading ? (
-          <p className={styles.loadingText}>Loading live reviews...</p>
-        ) : (
-          displayReviews.map((review, index) => (
-            <div key={index} className={styles.reviewCard}>
-              <div className={styles.cardHeader}>
-                <BubbleRating rating={review.rating} />
-              </div>
-              <p className={styles.reviewText}>"{review.text}"</p>
-              <div className={styles.reviewFooter}>
-                <div className={styles.authorInitial}>
-                  {review.user.username.charAt(0)}
-                </div>
-                <div className={styles.authorInfo}>
-                  <span className={styles.reviewAuthor}>{review.user.username}</span>
-                  {review.published_date && (
-                    <span className={styles.reviewDate}>
-                      {new Date(review.published_date).toLocaleDateString()}
-                    </span>
-                  )}
-                </div>
-              </div>
+      <div className={styles.reviewsCarouselSection}>
+        <button className={`${styles.navButton} ${styles.prevButton}`} onClick={goToPrev}>&#10094;</button>
+        
+        <div className={styles.reviewSlide} key={currentIndex}>
+          <div className={styles.cardHeader}>
+            <BubbleRating rating={displayReviews[currentIndex].rating} />
+          </div>
+          <p className={styles.reviewText}>"{displayReviews[currentIndex].text}"</p>
+          <div className={styles.reviewFooter}>
+            <div className={styles.authorInitial}>
+              {displayReviews[currentIndex].user.username.charAt(0)}
             </div>
-          ))
-        )}
+            <div className={styles.authorInfo}>
+              <span className={styles.reviewAuthor}>{displayReviews[currentIndex].user.username}</span>
+            </div>
+          </div>
+        </div>
+
+        <button className={`${styles.navButton} ${styles.nextButton}`} onClick={goToNext}>&#10095;</button>
       </div>
     </div>
   );
