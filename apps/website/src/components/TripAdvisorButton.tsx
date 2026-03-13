@@ -12,33 +12,25 @@ interface TripAdvisorButtonProps {
   locationId?: string;
 }
 
-// Official TripAdvisor Full Logo (Ollie mascot + Wordmark)
+// Official TripAdvisor Logo
 const TripAdvisorLogo = () => (
-  <svg className={styles.taLogo} viewBox="0 0 450 100" xmlns="http://www.w3.org/2000/svg">
-    {/* Verified Simple Icons Ollie Mascot */}
-    <g fill="#00AF87" transform="scale(3.2) translate(0, 0)">
-      <path d="M17.14 13.14a1.86 1.86 0 1 0 1.86 1.86 1.86 1.86 0 0 0-1.86-1.86zm-10.28 0a1.86 1.86 0 1 0 1.86 1.86 1.86 1.86 0 0 0-1.86-1.86zM12 0C5.385 0 0 5.385 0 12s5.385 12 12 12 12-5.385 12-12S18.615 0 12 0zm6.857 18.143a4.286 4.286 0 1 1 4.286-4.286 4.286 4.286 0 0 1-4.286 4.286zm-13.714 0a4.286 4.286 0 1 1 4.286-4.286 4.286 4.286 0 0 1-4.286 4.286zM12 15.429l-1.714-2.572h3.428L12 15.429zm6.857-8.572a6.857 6.857 0 0 0-6.857 6.857 6.857 6.857 0 0 0-6.857-6.857 10.286 10.286 0 0 1 13.714 0z"/>
-    </g>
-    {/* Tripadvisor Wordmark */}
-    <text x="100" y="65" fontFamily="'Helvetica Neue', Helvetica, Arial, sans-serif" fontWeight="700" fontSize="52" letterSpacing="-0.5" fill="#000000">Tripadvisor</text>
-  </svg>
+  <img 
+    src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg" 
+    alt="Tripadvisor" 
+    className={styles.taLogo} 
+  />
 );
 
 const BubbleRating = ({ rating, size = "small" }: { rating: number, size?: "small" | "large" }) => {
+  const ratingStr = rating % 1 === 0 ? `${rating}.0` : `${rating}`;
+  const imageUrl = `https://www.tripadvisor.com/img/cdsi/img2/ratings/traveler/${ratingStr}-66827-5.svg`;
+  
   return (
-    <div className={`${styles.bubblesContainer} ${size === "large" ? styles.largeBubbles : ""}`}>
-      {[1, 2, 3, 4, 5].map((i) => {
-        let bubbleClass = styles.bubble;
-        if (i <= Math.floor(rating)) {
-          bubbleClass += ` ${styles.full}`;
-        } else if (i === Math.ceil(rating) && rating % 1 !== 0) {
-          bubbleClass += ` ${styles.half}`;
-        } else {
-          bubbleClass += ` ${styles.empty}`;
-        }
-        return <div key={i} className={bubbleClass} />;
-      })}
-    </div>
+    <img 
+      src={imageUrl} 
+      alt={`${rating} bubbles`} 
+      className={size === "large" ? styles.largeRatingStars : styles.ratingStars} 
+    />
   );
 };
 

@@ -60,6 +60,7 @@
   max-width: 250px;
 }
 
+/* TripAdvisor Rating Styles */
 .ratingSummary {
   display: flex;
   align-items: center;
@@ -163,48 +164,6 @@
   right: 5px;
 }
 
-/* TripAdvisor Bubble Rating Styles */
-.bubblesContainer {
-  display: flex;
-  gap: 3px;
-}
-
-.largeBubbles {
-  gap: 5px;
-}
-
-.bubble {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  border: 1px solid #00af87;
-  position: relative;
-  overflow: hidden;
-}
-
-.largeBubbles .bubble {
-  width: 18px;
-  height: 18px;
-}
-
-.bubble.full {
-  background-color: #00af87;
-}
-
-.bubble.half::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 100%;
-  background-color: #00af87;
-}
-
-.bubble.empty {
-  background-color: #fff;
-}
-
 /* Loading Widget Styles */
 .tripadvisorWidget.loading {
   background: #fff;
@@ -237,6 +196,11 @@
 
 .ratingStars {
   height: 24px;
+  width: auto;
+}
+
+.largeRatingStars {
+  height: 32px;
   width: auto;
 }
 
