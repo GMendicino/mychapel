@@ -87,17 +87,9 @@ export const TripAdvisorButton: React.FC<TripAdvisorButtonProps> = ({ locationId
   if (loading) return (
     <div className={`${styles.tripadvisorWidget} ${styles.loading}`}>
       <div className={styles.tripadvisorContent}>
-        <img 
-          src="https://www.tripadvisor.com/img/cdsi/img2/branding/v2/Tripadvisor_lockup_horizontal_secondary_registered-11900-2.svg" 
-          alt="TripAdvisor" 
-          className={styles.tripadvisorLogo}
-        />
+        <TripAdvisorLogo />
         <div className={styles.tripadvisorRatingInfo}>
-          <img 
-            src="https://www.tripadvisor.com/img/cdsi/img2/ratings/traveler/4.5-66827-5.svg" 
-            alt="4.5 stars" 
-            className={styles.ratingStars} 
-          />
+          <BubbleRating rating={4.5} size="large" />
           <span className={styles.reviewCount}>Loading reviews...</span>
         </div>
       </div>
